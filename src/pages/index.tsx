@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { AgentType } from '../lib/types';
+import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [selectedAgent, setSelectedAgent] = useState<AgentType>('math');
@@ -117,11 +118,7 @@ export default function Home() {
                   }`}
                 >
                   <div className="prose prose-sm sm:prose-base max-w-none">
-                    {message.content.split('\n').map((line, i) => (
-                      <p key={i} className="mb-2 last:mb-0">
-                        {line}
-                      </p>
-                    ))}
+                    <ReactMarkdown>{message.content}</ReactMarkdown>
                   </div>
                 </div>
               </div>
